@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل حساب جديد</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            direction: rtl;
+        }
+
+        .signup-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #42b72a;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #42b72a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #36a420;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        a {
+            color: #1877f2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-box">
+        <h1>إنشاء حساب جديد</h1>
+        <form>
+            <label>الاسم الكامل:</label>
+            <input type="text" name="fullname">
+
+            <label>اسم المستخدم:</label>
+            <input type="text" name="username">
+
+            <label>الإيميل:</label>
+            <input type="email" name="email">
+
+            <label>كلمة المرور:</label>
+            <input type="password" name="password">
+
+            <button type="submit">تسجيل</button>
+        </form>
+
+        <p>عندك حساب؟ <a href="login.html">سجل دخول</a></p>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const fullName = form.fullname.value;
+            const username = form.username.value;
+            const email = form.email.value;
+            const password = form.password.value;
+
+            localStorage.setItem('fullname', fullName);
+            localStorage.setItem('username', username);
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
+
+
+            alert("تم التسجيل بنجاح ✅");
+            form.reset();
+        });
+    </script>
+</body>
+</html>
