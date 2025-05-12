@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>الرئيسية</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ebee;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+
+        .header {
+            background-color: #1877f2;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .container {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .welcome {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #e53935;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">صفحتي الرئيسية</div>
+
+    <div class="container">
+        <div class="welcome" id="welcomeText">أهلاً بيك!</div>
+        <button onclick="logout()">تسجيل الخروج</button>
+    </div>
+
+    <script>
+        // نجيب اسم المستخدم
+        const username = localStorage.getItem('username');
+        const welcomeText = document.getElementById('welcomeText');
+
+        if (username) {
+            welcomeText.textContent = "أهلاً بيك يا " + username + " 👋";
+        } else {
+            // لو مفيش مستخدم مسجل، نرجّع للصفحة الرئيسية
+            window.location.href = "login.html";
+        }
+
+        function logout() {
+            // نحذف البيانات أو نسيبها حسب ما تحب
+            localStorage.removeItem('username');
+            localStorage.removeItem('password');
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
